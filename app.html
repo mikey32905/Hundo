@@ -2,7 +2,7 @@
 <html lang="en" class="h-100">
 
     <head>
-        <title>App Name: A Coding Project by Mike Williams</title>
+        <title>HUNDO: A Coding Project by Mike Williams</title>
         <!-- Required meta tags -->
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -21,7 +21,7 @@
         <!--Nav Section-->
         <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
             <div class="container-fluid">
-                <a class="navbar-brand" href="#"><img src="img/MikeWilliams(2)-Mark.png" clas="d-inline-block align-text-top" width="30" height="24"> APP NAME</a>
+                <a class="navbar-brand" href="#"><img src="img/MikeWilliams(2)-Mark.png" clas="d-inline-block align-text-top" width="30" height="24"> HUNDO</a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse"
                     aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
@@ -38,7 +38,7 @@
                             <a class="nav-link" href="code.html">The Code</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" target="_blank" href="#">Git Repo</a>
+                            <a class="nav-link" target="_blank" href="https://github.com/mikey32905/Hundo">Git Repo</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" target="_blank" href="#">About</a>
@@ -50,8 +50,46 @@
 
         <!--Main Section-->
         <main class="flex-shrink-0">
-            <div class="container">
+            <div class="container mt-5">
+                <div class="row row-cols-1 row-cols-lg-2">
+                    <div class="col-lg-4 col border-end border-2">
+                        <h1>HUNDO: A Coding Project</h1>
+                        <h4 class="lead">
+                            Live life one loop at a time.  A javascript coding exercise using loops. Write a 
+                            program that displays the numbers from 0 to 100.  Display the even numbers in 
+                            <strong>BOLD</strong>.
+                        </h4>
+                        <h2 class="mt-5 border-bottom border-2">Instructions</h2>
+                        <p>Enter a starting value and an ending value.  Press the button and the values will appear.</p>
+                    </div>
+                    <div class="col-lg-8 col ">
+                        <div>
+                            <h5>Enter values</h5>
+                            <form class="row gy-2 gx-3">
+                                <div class="col">
+                                    <input id="startValue" type="number" class="form-control" placeholder="start value" 
+                                        value=0 aria-label="start value">
+                                </div>
+                                <div class="col">
+                                    <input id="endValue" type="number" class="form-control" placeholder="end value" 
+                                        value=100 aria-label="end value">
 
+                                </div>
+                                <div class="col-12 d-flex justify-content-end">
+                                    <button id="btnSubmit" type="button" class="btn btn-dark btn-lg">Display the Hondu</button>
+                                </div>
+                            </form>
+                            <h2 class="mt-5 border-bottom border-2">Result</h2>
+                            <div class="table-responsive">
+                                <table class="table table-striped table-sm">
+                                    <tbody id="results">
+                                        <!--results go here-->
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </main>
 
@@ -67,8 +105,8 @@
                     </div>
                     <div class="col d-flex align-items-center justify-content-start justify-content-lg-end">
                         <div class="row">
-                            <div class="col social"><a href="#" target="_blank"><i class="fa fa-linkedin fa-2x"></i></a> </div>
-                            <div class="col social"><a href="#" target="_blank"><i class="fa fa-github fa-2x"></i> </a> </div>
+                            <div class="col social"><a href="https://www.linkedin.com/in/michael-williams-0511835/" target="_blank"><i class="fa fa-linkedin fa-2x"></i></a> </div>
+                            <div class="col social"><a href="https://github.com/mikey32905/" target="_blank"><i class="fa fa-github fa-2x"></i> </a> </div>
                             <div class="col social"><a href="#" target="_blank"><i class="fa fa-twitter fa-2x"></i></a> </div>
                         </div>
                     </div>
@@ -86,6 +124,8 @@
         </script>
 
         <script src="js/site.js"></script>
-
+        <script>
+            document.getElementById("btnSubmit").addEventListener("click", getValues);
+        </script>
     </body>
 </html>

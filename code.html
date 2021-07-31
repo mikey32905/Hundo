@@ -2,7 +2,7 @@
 <html lang="en" class="h-100">
 
     <head>
-        <title>App Name: A Coding Project by Mike Williams</title>
+        <title>HUNDO: A Coding Project by Mike Williams</title>
         <!-- Required meta tags -->
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -22,7 +22,7 @@
         <!--Nav Section-->
         <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
             <div class="container-fluid">
-                <a class="navbar-brand" href="#"><img src="img/MikeWilliams(2)-Mark.png" clas="d-inline-block align-text-top" width="30" height="24"> APP NAME</a>
+                <a class="navbar-brand" href="#"><img src="img/MikeWilliams(2)-Mark.png" clas="d-inline-block align-text-top" width="30" height="24"> HUNDO</a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse"
                     aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
@@ -39,7 +39,7 @@
                             <a class="nav-link active" aria-current="page" href="code.html">The Code</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" target="_blank" href="#">Git Repo</a>
+                            <a class="nav-link" target="_blank" href="https://github.com/mikey32905/Hundo">Git Repo</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" target="_blank" href="#">About</a>
@@ -52,25 +52,97 @@
         <!--Main Section-->
         <main class="flex-shrink-0">
             <div class="container py-4 px-5 mt-5">
-                <h2 class="border-1 border-bottom border-dark">The Code for APP NAME.</h2>
+                <h2 class="border-1 border-bottom border-dark">The Code for HUNDO.</h2>
                 <div class="row row-cols-1 row-cols-lg-2">
                     <!--Code Embed-->
                     <!--Paste Javascript code between <code> </code>-->
                     <div class="col-lg-8">
                         <pre class="line-numbers"><code class="language-javascript">                          
-                                //Call Hello World
-                                function HelloWorld(){
-                                    alert("Hello World!!");
+                            //get values from ui
+                            //entry or controller function
+                            function getValues(){
+                                //get values from the page
+                                let startValue = document.getElementById("startValue").value;
+                                let endValue = document.getElementById("endValue").value;
+                            
+                                //We need to validate our inputs
+                                //parse into integers
+                                startValue = parseInt(startValue);
+                                endValue = parseInt(endValue);
+                            
+                                if (Number.isInteger(startValue) && Number.isInteger(endValue)){
+                                    //call generated numbers
+                                    let numbers = generateNumbers(startValue, endValue);
+                                    //call display numbers
+                                    displayNumbers(numbers);
+                                }else{
+                                    alert("You must enter integers!! Please try again!");
                                 }
+                            
+                            }
+                            
+                            //generate numbers from start to end values
+                            //logic function(s)
+                            function generateNumbers(startValue, endValue){
+                                let genNumsArray = [];
+                            
+                                for (let i = startValue; i <= endValue; i++){
+                                    genNumsArray.push(i);
+                                }
+                            
+                                return genNumsArray;
+                            }
+                            
+                            //display the numbers and mark the even numbers bold.
+                            //display of view functions
+                            function displayNumbers(numbers){
+                                let templateRows = "";
+                            
+                                for (let i = 0; i < numbers.length; i++){
+                                    let number = numbers[i];
+                            
+                                    if (number % 2 == 0){
+                                        templateRows += `&lt;tr>&lt;td>&lt;strong>${number}&lt;/strong>&lt;/td>&lt;/tr>`;
+                                        //This does render correctly with Prism see the source
+                                        //templateRows += "<tr><td><strong>${number}</strong></td></tr>";
+                                    }else{
+                                       templateRows += `&lt;tr>&lt;td>${number}&lt;/td>&lt;/tr>`;
+                                      //This does render correctly with Prism see the source
+                                      
+                                    }
+                                }
+                            
+                                document.getElementById("results").innerHTML = templateRows;
+                            
+                            }
+                            
                         </code>
                         </pre>
                     </div>
 
                     <!--Description-->
                     <div class="col-lg-4">
-                        <p>The code is structured in one function.</p>
-                        <h5>Hello World</h5>
-                        <p>Hello World is a function that displays an alert with a message of "Hello World".</p>
+                        <div class="row">
+                            <img src="/img/HundoLogo.png" class="img-fluid center-block d-block ax-auto" alt="App logo" width="500" height="300">
+
+                        </div>
+                        <div class="row">
+                            <p>The code is structured in three function.</p>
+                            <h5>getValues</h5>
+                            <p>getValues function acts like the quarterback for the application.  This function gets the entered values from
+                                the application form.  After validating numbers are correctly entered in, it directs program flow to generate
+                                a list of numbers from entered starting and ending values, and displays them in the results section of application.
+                            </p>
+                            <h5>generateNumbers</h5>
+                            <p>generateNumbers take the entered starting and ending values and generates a list of numbers.  The list is generated via
+                                for loop.  Function will return an array of numbers.
+                            </p>
+                            <h5>displayNumbers</h5>
+                            <p>displayNumbers function displays the generated list of numbers to the screen, in a table layout.  For determining if a 
+                                listed number is even, an if-else-statement was used.  Also, the modulus (%) was used to test on number in list, returning 
+                                true if remainder is 0.  Displayed values were marked up using a markup template.  
+                            </p>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -88,8 +160,8 @@
                     </div>
                     <div class="col d-flex align-items-center justify-content-start justify-content-lg-end">
                         <div class="row">
-                            <div class="col social"><a href="#" target="_blank"><i class="fa fa-linkedin fa-2x"></i></a> </div>
-                            <div class="col social"><a href="#" target="_blank"><i class="fa fa-github fa-2x"></i> </a> </div>
+                            <div class="col social"><a href="https://www.linkedin.com/in/michael-williams-0511835/" target="_blank"><i class="fa fa-linkedin fa-2x"></i></a> </div>
+                            <div class="col social"><a href="https://github.com/mikey32905/" target="_blank"><i class="fa fa-github fa-2x"></i> </a> </div>
                             <div class="col social"><a href="#" target="_blank"><i class="fa fa-twitter fa-2x"></i></a> </div>
                         </div>
                     </div>
